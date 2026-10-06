@@ -79,4 +79,30 @@
       sections.forEach((section) => observer.observe(section));
     }
   }
+
+  if (location.pathname === "/articles/vision-model-benchmark.html" && "IntersectionObserver" in window) {
+    const articleSections = [
+      { element: document.querySelector(".article-summary"), section: "summary", title: "The short answer" },
+      ...["method", "results", "cost-quality", "decision"].map((section) => {
+        const element = document.getElementById(section);
+        const title = element?.querySelector(".article-section-label")?.textContent?.replace(/^\d+\s*\/\s*/, "").trim();
+        return { element, section, title: title || section };
+      })
+    ].filter((item) => item.element);
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const section = articleSections.find((item) => item.element === entry.target);
+        if (section) capture("article_section_viewed", {
+          article_slug: "vision-model-benchmark",
+          section: section.section,
+          section_title: section.title
+        });
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1 });
+
+    articleSections.forEach((section) => observer.observe(section.element));
+  }
 })();

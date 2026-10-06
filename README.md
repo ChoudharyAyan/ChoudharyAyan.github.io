@@ -45,9 +45,19 @@ The site includes [`analytics.js`](analytics.js) on every page, connected to the
 | Event | What it answers |
 | --- | --- |
 | `homepage_section_viewed` | Did visitors reach Journey or The Feed? Break down by `section`. |
+| `article_section_viewed` | How far did readers get in the benchmark article? Break down by `section` (summary, method, results, cost-quality, decision). Each section is counted once per page load when it enters view. |
 | `feed_filter_selected` | Did visitors choose Builds or Articles? Break down by `filter`. |
 | `feed_item_clicked` | Which project or article drew interest? Break down by `item_title`. |
 | `portfolio_download_clicked` | Was the benchmark PDF downloaded? |
 | `outbound_link_clicked` | Which external sites did visitors open? Break down by `destination_host`. |
 
 PostHog also autocaptures ordinary link and button clicks. Cookieless visitors get a new anonymous identifier each day, so multi-day unique visitor totals are estimates rather than exact counts of people. Ad blockers can also prevent some visits from being counted.
+
+### Attribute LinkedIn traffic
+
+Use a different tagged link in each placement so PostHog can separate visits from the post and comment. These links point to the same article:
+
+- LinkedIn post: `https://choudharyayan.github.io/articles/vision-model-benchmark.html?utm_source=linkedin&utm_medium=organic_social&utm_campaign=vision_model_benchmark&utm_content=post`
+- LinkedIn comment: `https://choudharyayan.github.io/articles/vision-model-benchmark.html?utm_source=linkedin&utm_medium=organic_social&utm_campaign=vision_model_benchmark&utm_content=comment`
+
+Replace the existing untagged URL in each LinkedIn placement with its matching tagged link. In PostHog Web Analytics, check **Sources** and the UTM campaign/content breakdown; `utm_content` distinguishes post from comment. The older untagged link may appear as LinkedIn referral traffic when the browser passes its referrer, but it cannot reliably distinguish those two placements. PostHog counts people who land on this site, not LinkedIn post impressions, profile views, or clicks that never reach the site; those are available in LinkedIn's own post/profile analytics.
