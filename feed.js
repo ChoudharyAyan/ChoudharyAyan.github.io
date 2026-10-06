@@ -27,14 +27,14 @@ window.FEED_ITEMS = [
     secondaryLabel: "Live preview"
   },
   {
-    type: "note",
-    date: "2026-03-17",
-    displayDate: "2026",
-    eyebrow: "A NOTE ON BUILDING",
-    title: "A music taste gap I wanted to close",
-    description: "Spotify Blend is great—until one friend uses YouTube Music. That small frustration became UniBlend: an experiment in bringing listening histories together across platforms.",
-    tags: ["Idea", "Music", "Building"],
-    url: "https://www.linkedin.com/in/choudhary-ayan/",
-    linkLabel: "Follow my posts"
+    type: "article",
+    date: "2026-10-06",
+    displayDate: "OCT 2026",
+    eyebrow: "RESEARCH / VISION AI",
+    title: "Can a vision model identify every item in a fashion screenshot?",
+    description: "A benchmark of 11 vision models on 100 screenshots, measuring item recall, product naming, description accuracy, search queries, cost, and latency.",
+    tags: ["Vision AI", "Benchmark", "Research"],
+    url: "articles/vision-model-benchmark.html",
+    linkLabel: "Read the article"
   }
 ];

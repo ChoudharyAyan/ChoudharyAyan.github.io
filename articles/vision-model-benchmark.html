@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eae5df" />
+    <meta name="description" content="Ayan Choudhary's benchmark of 11 vision models on extracting fashion products from 100 screenshots, including accuracy, cost, and latency." />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Vision Model Benchmark — Ayan Choudhary" />
+    <meta property="og:description" content="Can a vision model identify every item in a fashion screenshot? An item-level benchmark of 11 models on 100 images." />
+    <meta property="og:url" content="https://choudharyayan.github.io/articles/vision-model-benchmark.html" />
+    <link rel="canonical" href="https://choudharyayan.github.io/articles/vision-model-benchmark.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../article.css" />
+    <title>Vision Model Benchmark — Ayan Choudhary</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#article">Skip to article</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="../index.html" aria-label="Ayan Choudhary, home"><span>AYAN<br />CHOUDHARY<span class="mark-dot">.</span></span></a>
+        <nav class="main-nav" aria-label="Main navigation"><a href="../index.html#journey">Journey</a><a href="../index.html#feed">The feed</a></nav>
+        <a class="header-link" href="../index.html#feed">BACK TO FEED <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="article">
+      <article>
+        <header class="article-hero">
+          <div class="shell article-hero-inner">
+            <div class="article-topline"><span>ARTICLE / VISION AI</span><span>OCTOBER 2026 <span aria-hidden="true">/</span> 8 MIN READ</span></div>
+            <h1>CAN A VISION MODEL IDENTIFY EVERY ITEM IN A FASHION SCREENSHOT<span class="article-question">?</span></h1>
+            <div class="article-deck-row">
+              <p>A benchmark of item-level extraction: find every purchasable product, name it, describe it, and write the query to find it.</p>
+              <a href="../assets/vision-model-benchmark-v2.pdf" download>DOWNLOAD THE ORIGINAL PDF <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-summary shell">
+          <p class="article-section-label">THE SHORT ANSWER / 01</p>
+          <div><h2>GEMINI 3 FLASH HITS THE SWEET SPOT.</h2><p>It scored 94.7 on the FNDS framework—effectively tied with the top scorer—at $3.19 per 1,000 images and 4.7 seconds median latency. Those numbers come from this 100-image test set and the OpenRouter API path used for the benchmark.</p></div>
+          <div class="summary-metrics"><div><strong>94.7</strong><span>FNDS SCORE</span></div><div><strong>$3.19</strong><span>PER 1,000 IMAGES</span></div><div><strong>4.7s</strong><span>MEDIAN LATENCY</span></div></div>
+        </div>
+
+        <div class="article-body shell">
+          <nav class="article-toc" aria-label="On this page"><span>IN THIS ARTICLE</span><a href="#method">01 / Method</a><a href="#results">02 / Results</a><a href="#cost-quality">03 / Cost vs quality</a><a href="#decision">04 / What I’d choose</a></nav>
+
+          <section id="method" class="article-section" aria-labelledby="method-title">
+            <div class="article-section-heading"><p class="article-section-label">01 / METHOD</p><h2 id="method-title">ONE IMAGE IN.<br /><span>STRUCTURED JSON OUT.</span></h2></div>
+            <p class="lead">The task was to identify <strong>every purchasable item</strong> in a fashion screenshot, classify its product type, describe 11 attributes, and generate a search query. Each model received one image in a single call.</p>
+            <div class="pipeline" aria-label="Screenshot to vision model to extracted items and search query"><span>SCREENSHOT</span><b aria-hidden="true">→</b><span>VISION MODEL</span><b aria-hidden="true">→</b><span>ITEMS + ATTRIBUTES + QUERY</span></div>
+            <div class="method-facts"><div><span>TEST SET</span><strong>100 screenshots</strong><p>8 categories · 46 celebrity looks · 54 everyday looks</p></div><div><span>MODELS</span><strong>11 vision LLMs</strong><p>Google, OpenAI, Anthropic, and Alibaba, accessed through OpenRouter</p></div><div><span>GROUND TRUTH</span><strong>92% consensus coverage</strong><p>Gemini 3.1 Pro and Claude Sonnet 5.5 labelled each image independently; only agreed items were scored.</p></div></div>
+            <p class="method-note">A GPT-5.6 Terra audit of 20 images found 100% of included items valid and 97.8% of their attributes correct. Latency is the median end-to-end time per call across 100 images.</p>
+            <h3 class="subhead">The FNDS framework</h3>
+            <p>Four components combine into a 0–100 score. Near misses receive half credit—for example, reading trousers as leggings or navy as black.</p>
+            <div class="framework-grid" aria-label="FNDS scoring weights"><div><b>F</b><span><strong>FINDS</strong><small>25% · Item recall against ground truth</small></span></div><div><b>N</b><span><strong>NAMES</strong><small>25% · Correct product type, such as kurta versus kurti</small></span></div><div><b>D</b><span><strong>DESCRIBES</strong><small>30% · Colour, pattern, fabric, fit, and other attributes</small></span></div><div><b>S</b><span><strong>SEARCH</strong><small>20% · Key terms present in the generated query</small></span></div></div>
+            <p class="formula">FNDS = 0.25F + 0.25N + 0.30D + 0.20S</p>
+          </section>
+
+          <section id="results" class="article-section" aria-labelledby="results-title">
+            <div class="article-section-heading"><p class="article-section-label">02 / RESULTS</p><h2 id="results-title">FLASH MODELS<br /><span>LEAD THE FIELD.</span></h2></div>
+            <p class="lead">Gemini 3.6 Flash posted the highest FNDS score at 95.0. Gemini 3 Flash followed at 94.7, while showing the strongest item recall and naming accuracy in this run. Gaps under five points should be treated as within the noise of this 100-image sample.</p>
+            <p class="scroll-hint">SWIPE TO SEE ALL COLUMNS →</p>
+            <div class="results-table-wrap" role="region" aria-label="Benchmark results table" tabindex="0">
+              <table class="results-table">
+                <caption>Item-level extraction results, sorted by FNDS score. Scores are out of 100; cost is per 1,000 images.</caption>
+                <thead><tr><th scope="col">MODEL</th><th scope="col">FNDS</th><th scope="col">F</th><th scope="col">N</th><th scope="col">D</th><th scope="col">S</th><th scope="col">$/1K</th><th scope="col">LATENCY</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Gemini 3.6 Flash <small>Google</small></th><td>95.0</td><td>94.8</td><td>98.2</td><td>94.3</td><td>92.1</td><td>$5.01</td><td>6.8s</td></tr>
+                  <tr class="best-row"><th scope="row">Gemini 3 Flash <small>Best value</small></th><td>94.7</td><td>98.8</td><td>98.4</td><td>93.5</td><td>91.3</td><td>$3.19</td><td>4.7s</td></tr>
+                  <tr><th scope="row">Gemini 3.5 Flash <small>Google</small></th><td>90.8</td><td>88.1</td><td>95.3</td><td>92.8</td><td>86.5</td><td>$11.05</td><td>5.0s</td></tr>
+                  <tr><th scope="row">Gemini 3.1 Flash-Lite <small>4% failed calls</small></th><td>89.3</td><td>93.1</td><td>98.1</td><td>91.9</td><td>88.4</td><td>$2.18</td><td>4.5s</td></tr>
+                  <tr><th scope="row">GPT-5.4 mini <small>OpenAI</small></th><td>88.1</td><td>93.9</td><td>95.0</td><td>82.7</td><td>80.2</td><td>$4.26</td><td>5.9s</td></tr>
+                  <tr><th scope="row">GPT-5.6 Luna <small>OpenAI</small></th><td>86.1</td><td>97.3</td><td>95.5</td><td>74.8</td><td>77.3</td><td>$1.19</td><td>8.0s</td></tr>
+                  <tr><th scope="row">Claude Haiku 4.5 <small>Anthropic</small></th><td>84.7</td><td>90.5</td><td>94.5</td><td>80.2</td><td>72.2</td><td>$5.94</td><td>5.6s</td></tr>
+                  <tr><th scope="row">GPT-5.4 nano <small>OpenAI</small></th><td>82.0</td><td>94.4</td><td>92.2</td><td>71.4</td><td>73.9</td><td>$1.32</td><td>6.2s</td></tr>
+                  <tr><th scope="row">GPT-5 nano <small>OpenAI</small></th><td>79.2</td><td>84.3</td><td>89.5</td><td>73.0</td><td>74.1</td><td>$0.51</td><td>10.7s</td></tr>
+                  <tr><th scope="row">Qwen3-VL 235B <small>Alibaba · open</small></th><td>72.2</td><td>71.4</td><td>76.1</td><td>73.2</td><td>70.8</td><td>$1.64</td><td>22.2s</td></tr>
+                  <tr><th scope="row">Qwen3-VL 30B <small>Alibaba · open</small></th><td>66.5</td><td>70.1</td><td>70.5</td><td>66.0</td><td>61.5</td><td>$0.65</td><td>20.7s</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">F = Finds · N = Names · D = Describes · S = Search. All costs and latencies are from the benchmark’s OpenRouter path, rather than a claim about every provider or deployment.</p>
+          </section>
+
+          <section id="cost-quality" class="article-section" aria-labelledby="cost-title">
+            <div class="article-section-heading"><p class="article-section-label">03 / COST VS QUALITY</p><h2 id="cost-title">MORE EXPENSIVE<br /><span>ISN’T ALWAYS BETTER.</span></h2></div>
+            <p class="lead">Quality begins to flatten near $3 per 1,000 images. Gemini 3 Flash sits near the upper-left of the cost-quality map; Gemini 3.5 Flash costs about 3.5 times as much while scoring 3.9 points lower.</p>
+            <p class="scroll-hint">SWIPE TO EXPLORE THE CHART →</p>
+            <div class="chart-scroll" role="region" aria-label="Cost versus quality chart" tabindex="0"><div class="chart-frame">
+              <svg viewBox="0 0 960 540" role="img" aria-labelledby="chart-title chart-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="chart-title">FNDS score versus cost per 1,000 images</title><desc id="chart-desc">Scatter plot of all 11 tested vision models. Gemini 3 Flash scores 94.7 at $3.19 and is highlighted as the best value.</desc>
+                <g class="chart-grid"><path d="M75 65H910M75 155H910M75 245H910M75 335H910M75 425H910"/><path d="M85 65V425M265 65V425M445 65V425M685 65V425M865 65V425"/></g>
+                <g class="chart-axis"><text x="45" y="69">100</text><text x="49" y="159">90</text><text x="49" y="249">80</text><text x="49" y="339">70</text><text x="49" y="429">60</text><text x="75" y="457">$0.5</text><text x="252" y="457">$1</text><text x="432" y="457">$2</text><text x="672" y="457">$5</text><text x="846" y="457">$10</text><text x="401" y="505">COST PER 1,000 IMAGES · LOG SCALE →</text><text transform="translate(18 306) rotate(-90)">FNDS SCORE →</text></g>
+                <g class="chart-points">
+                  <circle class="google" cx="686" cy="110" r="9"><title>Gemini 3.6 Flash: 95.0, $5.01</title></circle>
+                  <circle class="best-ring" cx="562" cy="113" r="17"/><circle class="google" cx="562" cy="113" r="10"><title>Gemini 3 Flash: 94.7, $3.19 · best value</title></circle>
+                  <circle class="google" cx="885" cy="148" r="9"><title>Gemini 3.5 Flash: 90.8, $11.05</title></circle>
+                  <circle class="google outline" cx="467" cy="161" r="9"><title>Gemini 3.1 Flash-Lite: 89.3, $2.18 · 4% failed calls</title></circle>
+                  <circle class="openai" cx="640" cy="172" r="9"><title>GPT-5.4 mini: 88.1, $4.26</title></circle>
+                  <circle class="openai" cx="310" cy="190" r="9"><title>GPT-5.6 Luna: 86.1, $1.19</title></circle>
+                  <circle class="anthropic" cx="730" cy="203" r="9"><title>Claude Haiku 4.5: 84.7, $5.94</title></circle>
+                  <circle class="openai" cx="336" cy="227" r="9"><title>GPT-5.4 nano: 82.0, $1.32</title></circle>
+                  <circle class="openai" cx="89" cy="252" r="9"><title>GPT-5 nano: 79.2, $0.51</title></circle>
+                  <circle class="qwen" cx="393" cy="315" r="9"><title>Qwen3-VL 235B: 72.2, $1.64</title></circle>
+                  <circle class="qwen" cx="152" cy="367" r="9"><title>Qwen3-VL 30B: 66.5, $0.65</title></circle>
+                </g>
+                <g class="chart-labels"><text x="543" y="88">GEMINI 3 FLASH</text><text x="694" y="105">3.6 FLASH</text><text x="91" y="242">GPT-5 NANO</text><text x="476" y="182">FLASH-LITE*</text></g>
+              </svg>
+              <div class="chart-legend"><span><i class="google"></i> Google</span><span><i class="openai"></i> OpenAI</span><span><i class="anthropic"></i> Anthropic</span><span><i class="qwen"></i> Alibaba (open)</span><span>* 4% failed calls</span></div>
+            </div></div>
+            <div class="finding-grid"><div><span>THE SWEET SPOT</span><h3>Gemini 3 Flash</h3><p>94.7 FNDS at $3.19, with the best item recall and product-type accuracy in this run.</p></div><div><span>THE LOW-COST API</span><h3>GPT-5 nano</h3><p>The lowest listed API cost at $0.51 per 1,000 images, with a 79.2 FNDS score.</p></div><div><span>THE SELF-HOSTED OPTION</span><h3>Qwen3-VL</h3><p>Lower accuracy and much slower through this API route, but relevant when images need to stay in-house.</p></div></div>
+          </section>
+
+          <section id="decision" class="article-section decision-section" aria-labelledby="decision-title">
+            <p class="article-section-label">04 / THE DECISION</p><h2 id="decision-title">I’D START WITH<br /><span>GEMINI 3 FLASH.</span></h2>
+            <p class="lead">For live item extraction at scale, it offers the strongest balance in this test: effectively the top quality score, lower cost than the highest scorer, and a 4.7-second median response. Its 98.8 item recall and 98.4 naming score are especially useful when missing or misnaming a garment breaks the downstream search experience.</p>
+            <div class="decision-bottom"><p>If API price is the overriding constraint, GPT-5 nano is cheaper. If images must stay in-house, Qwen3-VL is worth considering despite its lower scores and roughly 20-second API latency here.</p><p class="limitation"><strong>Scope matters.</strong> This is a 100-screenshot, eight-category benchmark with model access through OpenRouter. Prices, latency, and model behavior can change; small score gaps should not be treated as universal rankings. Validate a production choice on your own image mix.</p></div>
+            <a class="article-back" href="../index.html#feed">← BACK TO THE FEED</a>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer"><div class="shell footer-inner"><div><span class="footer-mark">KEEP BUILDING<span class="mark-dot">.</span></span><p>Still figuring things out. Always making.</p></div><div class="footer-links"><a href="../index.html">HOME ↗</a><a href="https://www.linkedin.com/in/choudhary-ayan/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a><a href="https://github.com/ChoudharyAyan" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div></div><div class="shell footer-bottom"><span>© 2026 Ayan Choudhary</span><span>Made to keep evolving.</span></div></footer>
+  </body>
+</html>

@@ -8,9 +8,10 @@
   count.textContent = String(items.length).padStart(2, "0");
 
   function safeUrl(value) {
+    if (typeof value !== "string" || !value.trim()) return null;
     try {
-      const url = new URL(value);
-      return url.protocol === "https:" ? url.href : null;
+      const url = new URL(value, document.baseURI);
+      return url.protocol === "https:" || url.origin === location.origin ? url : null;
     } catch {
       return null;
     }
@@ -21,9 +22,11 @@
     if (!href) return null;
     const a = document.createElement("a");
     a.className = className;
-    a.href = href;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
+    a.href = href.href;
+    if (href.origin !== location.origin) {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
     a.textContent = label;
     const arrow = document.createElement("span");
     arrow.setAttribute("aria-hidden", "true");
@@ -40,7 +43,7 @@
     top.className = "card-top";
     const type = document.createElement("span");
     type.className = "card-type";
-    type.textContent = item.type === "build" ? "◈ BUILD" : "✳ NOTE";
+    type.textContent = item.type === "build" ? "BUILD" : "ARTICLE";
     const number = document.createElement("span");
     number.className = "card-number";
     number.textContent = String(index + 1).padStart(2, "0");
