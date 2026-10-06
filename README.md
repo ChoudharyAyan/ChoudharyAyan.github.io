@@ -35,3 +35,19 @@ The site is published at [choudharyayan.github.io](https://choudharyayan.github.
 You can also add a feed item directly on GitHub: open `feed.js` in the repository, click the pencil icon, add an object, then click **Commit changes**. GitHub Pages will publish the update after its build completes.
 
 The file `.nojekyll` keeps GitHub Pages in static-file mode.
+
+## PostHog analytics
+
+The site includes [`analytics.js`](analytics.js) on every page. It stays inactive until you add a **public PostHog project token** and its matching API host (`https://us.i.posthog.com` or `https://eu.i.posthog.com`) at the top of that file. Do not add a personal API key. Tracking runs only on `choudharyayan.github.io`, so local previews do not affect your numbers.
+
+In PostHog, enable **Project Settings → Web analytics → Cookieless server hash mode** before publishing the token. The site uses cookieless anonymous tracking, with session recording disabled. PostHog's Web Analytics dashboard will show visitors, pageviews, popular pages, sources, and outbound links. In Product Analytics, create Trends insights for these portfolio events:
+
+| Event | What it answers |
+| --- | --- |
+| `homepage_section_viewed` | Did visitors reach Journey or The Feed? Break down by `section`. |
+| `feed_filter_selected` | Did visitors choose Builds or Articles? Break down by `filter`. |
+| `feed_item_clicked` | Which project or article drew interest? Break down by `item_title`. |
+| `portfolio_download_clicked` | Was the benchmark PDF downloaded? |
+| `outbound_link_clicked` | Which external sites did visitors open? Break down by `destination_host`. |
+
+PostHog also autocaptures ordinary link and button clicks. Cookieless visitors get a new anonymous identifier each day, so multi-day unique visitor totals are estimates rather than exact counts of people. Ad blockers can also prevent some visits from being counted.
