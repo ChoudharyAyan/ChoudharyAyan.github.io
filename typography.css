@@ -1,0 +1,90 @@
+/* A quieter display style with enough space for every letter to read clearly. */
+h1,
+h2,
+.feed-card h3,
+.timeline-item h3,
+.footer-mark,
+.article-section h3 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+h1 span,
+h1 em,
+h2 span,
+.article-section h2 span {
+  letter-spacing: inherit;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-size: clamp(68px, 7.3vw, 112px);
+  line-height: 0.99;
+  white-space: normal;
+}
+
+.hero-intro,
+.article-deck-row p,
+.article-section .lead {
+  font-weight: 400;
+}
+
+.wordmark {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+}
+
+.feed-card h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+.footer-mark {
+  line-height: 1;
+}
+
+.article-hero h1 {
+  max-width: 1250px;
+  font-size: clamp(60px, 6.4vw, 98px);
+  letter-spacing: -0.02em;
+  line-height: 1.03;
+}
+
+.article-summary h2,
+.article-section h2,
+.decision-section h2 {
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+}
+
+.summary-metrics strong,
+.method-facts strong,
+.framework-grid b,
+.finding-grid h3 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(64px, 12vw, 88px);
+  }
+
+  .article-hero h1 {
+    font-size: clamp(50px, 8.7vw, 70px);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: clamp(58px, 14vw, 76px);
+  }
+
+  .article-hero h1 {
+    font-size: clamp(43px, 10.2vw, 55px);
+  }
+}

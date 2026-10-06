@@ -2,6 +2,28 @@
 window.FEED_ITEMS = [
   {
     type: "build",
+    date: "2026-09-23",
+    displayDate: "2026",
+    eyebrow: "PERSONAL TOOL / JOB SEARCH",
+    title: "Job Search Agent",
+    description: "A personal agent that finds product and strategy roles, scores new openings against a profile, and sends a short digest of the ones worth a closer look.",
+    tags: ["Automation", "AI", "Career"],
+    url: "builds/job-search-agent.html",
+    linkLabel: "View the build"
+  },
+  {
+    type: "build",
+    date: "2026-09-22",
+    displayDate: "2026",
+    eyebrow: "PERSONAL TOOL / PRODUCT RESEARCH",
+    title: "Product Teardown Agent",
+    description: "A mobile-first workspace for capturing a product journey screen by screen, turning notes into a structured teardown, and sharing the report.",
+    tags: ["Product", "Research", "Tooling"],
+    url: "builds/product-teardown-agent.html",
+    linkLabel: "View the build"
+  },
+  {
+    type: "build",
     date: "2026-09-16",
     displayDate: "2026",
     eyebrow: "PRODUCT EXPERIMENT",

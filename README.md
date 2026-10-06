@@ -20,7 +20,9 @@ Open [`feed.js`](feed.js) and add an object at the top of `window.FEED_ITEMS`. U
 },
 ```
 
-To update the career timeline or introduction, edit [`index.html`](index.html). To change the visual design, edit [`styles.css`](styles.css).
+Builds with private source code can link to a public project page under `builds/`, as the Job Search Agent and Product Teardown Agent do.
+
+To update the career timeline or introduction, edit [`index.html`](index.html). The shared visual design lives in [`styles.css`](styles.css), with heading adjustments in [`typography.css`](typography.css) and project-page styles in [`build.css`](build.css).
 
 ## Preview locally
 

@@ -6,14 +6,15 @@
     <meta name="theme-color" content="#eae5df" />
     <meta name="description" content="Ayan Choudhary's benchmark of 11 vision models on extracting fashion products from 100 screenshots, including accuracy, cost, and latency." />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Vision Model Benchmark — Ayan Choudhary" />
+    <meta property="og:title" content="Vision Model Benchmark | Ayan Choudhary" />
     <meta property="og:description" content="Can a vision model identify every item in a fashion screenshot? An item-level benchmark of 11 models on 100 images." />
     <meta property="og:url" content="https://choudharyayan.github.io/articles/vision-model-benchmark.html" />
     <link rel="canonical" href="https://choudharyayan.github.io/articles/vision-model-benchmark.html" />
     <link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml" />
     <link rel="stylesheet" href="../styles.css?v=2" />
     <link rel="stylesheet" href="../article.css?v=2" />
-    <title>Vision Model Benchmark — Ayan Choudhary</title>
+    <link rel="stylesheet" href="../typography.css?v=3" />
+    <title>Vision Model Benchmark | Ayan Choudhary</title>
   </head>
   <body>
     <a class="skip-link" href="#article">Skip to article</a>
@@ -40,7 +41,7 @@
 
         <div class="article-summary shell">
           <p class="article-section-label">THE SHORT ANSWER / 01</p>
-          <div><h2>GEMINI 3 FLASH HITS THE SWEET SPOT.</h2><p>It scored 94.7 on the FNDS framework—effectively tied with the top scorer—at $3.19 per 1,000 images and 4.7 seconds median latency. Those numbers come from this 100-image test set and the OpenRouter API path used for the benchmark.</p></div>
+          <div><h2>GEMINI 3 FLASH HITS THE SWEET SPOT.</h2><p>It scored 94.7 on the FNDS framework, effectively tying the top scorer, at $3.19 per 1,000 images and 4.7 seconds median latency. Those numbers come from this 100-image test set and the OpenRouter API path used for the benchmark.</p></div>
           <div class="summary-metrics"><div><strong>94.7</strong><span>FNDS SCORE</span></div><div><strong>$3.19</strong><span>PER 1,000 IMAGES</span></div><div><strong>4.7s</strong><span>MEDIAN LATENCY</span></div></div>
         </div>
 
@@ -54,7 +55,7 @@
             <div class="method-facts"><div><span>TEST SET</span><strong>100 screenshots</strong><p>8 categories · 46 celebrity looks · 54 everyday looks</p></div><div><span>MODELS</span><strong>11 vision LLMs</strong><p>Google, OpenAI, Anthropic, and Alibaba, accessed through OpenRouter</p></div><div><span>GROUND TRUTH</span><strong>92% consensus coverage</strong><p>Gemini 3.1 Pro and Claude Sonnet 5.5 labelled each image independently; only agreed items were scored.</p></div></div>
             <p class="method-note">A GPT-5.6 Terra audit of 20 images found 100% of included items valid and 97.8% of their attributes correct. Latency is the median end-to-end time per call across 100 images.</p>
             <h3 class="subhead">The FNDS framework</h3>
-            <p>Four components combine into a 0–100 score. Near misses receive half credit—for example, reading trousers as leggings or navy as black.</p>
+            <p>Four components combine into a 0–100 score. Near misses receive half credit, such as reading trousers as leggings or navy as black.</p>
             <div class="framework-grid" aria-label="FNDS scoring weights"><div><b>F</b><span><strong>FINDS</strong><small>25% · Item recall against ground truth</small></span></div><div><b>N</b><span><strong>NAMES</strong><small>25% · Correct product type, such as kurta versus kurti</small></span></div><div><b>D</b><span><strong>DESCRIBES</strong><small>30% · Colour, pattern, fabric, fit, and other attributes</small></span></div><div><b>S</b><span><strong>SEARCH</strong><small>20% · Key terms present in the generated query</small></span></div></div>
             <p class="formula">FNDS = 0.25F + 0.25N + 0.30D + 0.20S</p>
           </section>
