@@ -26,8 +26,10 @@ To update the career timeline or introduction, edit [`index.html`](index.html). 
 
 From this folder, run `python3 -m http.server 8000` and visit `http://localhost:8000`.
 
-## Publish to GitHub Pages
+## Publish updates
 
-Create a **public** repository named `ChoudharyAyan.github.io` under the `ChoudharyAyan` GitHub account and push these files to its `main` branch. In **Settings → Pages**, choose **Deploy from a branch**, `main`, and `/ (root)`. The site will appear at `https://choudharyayan.github.io/` after GitHub finishes publishing.
+The site is published at [choudharyayan.github.io](https://choudharyayan.github.io/). Pushing changes to the `main` branch automatically updates the site.
+
+You can also add a feed item directly on GitHub: open `feed.js` in the repository, click the pencil icon, add an object, then click **Commit changes**. GitHub Pages will publish the update after its build completes.
 
 The file `.nojekyll` keeps GitHub Pages in static-file mode.
