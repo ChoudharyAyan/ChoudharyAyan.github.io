@@ -38,9 +38,9 @@ The file `.nojekyll` keeps GitHub Pages in static-file mode.
 
 ## PostHog analytics
 
-The site includes [`analytics.js`](analytics.js) on every page. It stays inactive until you add a **public PostHog project token** and its matching API host (`https://us.i.posthog.com` or `https://eu.i.posthog.com`) at the top of that file. Do not add a personal API key. Tracking runs only on `choudharyayan.github.io`, so local previews do not affect your numbers.
+The site includes [`analytics.js`](analytics.js) on every page, connected to the EU PostHog project [Ayan Choudhary](https://eu.posthog.com/project/295494/web). The project token in that file is public frontend configuration, not a personal API key. Tracking runs only on `choudharyayan.github.io`, so local previews do not affect your numbers.
 
-In PostHog, enable **Project Settings → Web analytics → Cookieless server hash mode** before publishing the token. The site uses cookieless anonymous tracking, with session recording disabled. PostHog's Web Analytics dashboard will show visitors, pageviews, popular pages, sources, and outbound links. In Product Analytics, create Trends insights for these portfolio events:
+**Project Settings → Web analytics → Cookieless tracking** is enabled. The site uses cookieless anonymous tracking, with session recording disabled. [Web Analytics](https://eu.posthog.com/project/295494/web) shows visitors, pageviews, popular pages, and traffic sources. In Product Analytics, use Trends insights for these portfolio events:
 
 | Event | What it answers |
 | --- | --- |

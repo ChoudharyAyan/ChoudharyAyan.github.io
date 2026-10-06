@@ -1,11 +1,10 @@
 /*
- * Portfolio analytics. Add the public PostHog project token and matching API host
- * below. Cookieless server hash mode must also be enabled in PostHog project
- * settings before events will be accepted.
+ * Anonymous portfolio analytics for the EU PostHog project.
+ * Cookieless server hash mode is enabled in PostHog project settings.
  */
 (function () {
-  const PROJECT_TOKEN = "";
-  const API_HOST = "";
+  const PROJECT_TOKEN = "phc_CnoUPVktTjtikUL7wm4yEHePDtkNVodzJCwQoDdaboLY";
+  const API_HOST = "https://eu.i.posthog.com";
   const SITE_HOST = "choudharyayan.github.io";
 
   // Keep local previews and unconfigured deployments out of the dashboard.
