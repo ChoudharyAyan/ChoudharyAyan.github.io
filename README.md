@@ -113,11 +113,12 @@ No owner tokens or Spotify API secrets are stored or exposed.
 
 ### Audio and background motion
 
-Eight distinct game cries are cached from the PokéAPI cries repository, with
+Three game cries remain cached from the PokéAPI cries repository; five clips
+use owner-provided recordings, with
 source links and original durations in assets/pokemon/audio/sources.json.
-The original short cries are repeated with 240ms pauses into 2.4-second WAV
-clips at 24kHz for broad browser support, capped to a comfortable level.
-These are game cries, not anime dialogue or generated voice impersonations.
+Owner-provided clips are trimmed to 1.5 seconds; the three original game cries
+repeat with short pauses into 2.4-second WAV clips at 24kHz.
+The supplied recordings replace the corresponding game cries; no voice is generated.
 Selection and replay require a visitor click. Closing the guide, opening the
 music panel or hiding the page stops voice playback. No audio API or live
 PokéAPI request is used by visitors. Pokémon audio belongs to its respective
@@ -139,3 +140,5 @@ No login, refresh token, Spotify Web API, scheduled server task or running owner
 computer is needed. Streaming still relies on Spotify and visitor availability.
 Spotify controls its embed's Save button; the embed has no supported setting to
 remove it, so it remains intact.
+
+Five voice clips (Bulbasaur, Charmander, Pikachu, Jigglypuff and Chikorita) now use owner-provided MP3 recordings trimmed to 1.5 seconds after leading silence. Squirtle, Butterfree and Pidgey keep the existing 2.4-second game cries. Source filenames and trim offsets are recorded in the audio manifest.
