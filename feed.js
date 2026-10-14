@@ -27,12 +27,12 @@ window.FEED_ITEMS = [
     date: "2026-09-16",
     displayDate: "2026",
     eyebrow: "PRODUCT EXPERIMENT",
-    title: "The Better Wardrobe",
+    title: "The Wardrobe OS",
     description: "An India-first fashion companion exploring visual discovery, a digital wardrobe, styling, and more thoughtful shopping decisions.",
     tags: ["Fashion", "AI", "Product"],
     url: "https://github.com/ChoudharyAyan/the-better-wardrobe",
     linkLabel: "Explore the project",
-    secondaryUrl: "https://the-better-wardrobe.vercel.app",
+    secondaryUrl: "https://app.thewardrobeos.com",
     secondaryLabel: "Live preview"
   },
   {

@@ -61,3 +61,19 @@ Use a different tagged link in each placement so PostHog can separate visits fro
 - LinkedIn comment: `https://choudharyayan.github.io/articles/vision-model-benchmark.html?utm_source=linkedin&utm_medium=organic_social&utm_campaign=vision_model_benchmark&utm_content=comment`
 
 Replace the existing untagged URL in each LinkedIn placement with its matching tagged link. In PostHog Web Analytics, check **Sources** and the UTM campaign/content breakdown; `utm_content` distinguishes post from comment. The older untagged link may appear as LinkedIn referral traffic when the browser passes its referrer, but it cannot reliably distinguish those two placements. PostHog counts people who land on this site, not LinkedIn post impressions, profile views, or clicks that never reach the site; those are available in LinkedIn's own post/profile analytics.
+
+## Portfolio redesign — 15 October 2026
+
+The homepage is an editorial portfolio inspired by the sculptural opening, restrained typography and section pacing of [AI COMMON](https://aicommon.creamu.co.jp/). Its custom parametric SVG sculpture and project illustrations are built in code; no reference-site assets, copy or source were reused. The owner's existing Aomori photograph and factual career/project content remain the content foundation.
+
+- `portfolio.css` controls the homepage. Default: forest/citrus. The live palette controls also offer petrol/copper and paper/cobalt; selection is remembered in this browser when storage is available.
+- `script.js` renders the work index and the sculpture. Pointer movement subtly changes its perspective. Motion can be paused, respects reduced-motion preferences, and stops updating the geometry when the hero is off-screen or the document is hidden.
+- `reading.css` makes the existing benchmark and project pages belong to the same site without changing research results or the original downloadable PDF.
+- `feed.js` remains the content source; its existing filters, link safety and analytics-compatible card classes are retained. Wardrobe OS uses its current product name and app domain.
+- No new framework, tracking service, font download or image-generation dependency.
+
+### Review evidence
+
+JavaScript syntax checks (`node --check script.js`, `feed.js`, `analytics.js`) and `git diff --check` passed. A local HTML-parser audit checked all four HTML pages and 60 local asset/link/anchor references. Browser checks covered the two work filters, all three palettes, pause behaviour (SVG geometry remained identical), 44×44 palette targets, and rendered desktop/390px/320px layouts. Homepage and reading pages had no page-level horizontal overflow at the verified phone widths. Existing PostHog setup is unchanged and remains disabled on localhost.
+
+Screenshots in `docs/screenshots/` show palette comparisons, the mobile homepage, work index and reading pages. These are local-browser checks, not a real-device or complete accessibility/performance audit. Reduced-motion handling was reviewed in code; the operating system's preference was not changed during testing.
