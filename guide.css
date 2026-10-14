@@ -26,3 +26,5 @@
 @media(max-width:650px){.music-panel.is-minimized{width:calc(100% - 24px);bottom:86px}.guide-header strong{font-size:14px}.guide-header small{font-size:12px}.guide-header .guide-avatar{width:36px;height:36px}.guide-header{padding:10px 8px;gap:5px}}
 
 .music-panel.is-tucked{visibility:hidden;pointer-events:none}
+
+.music-launcher-title{display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}.music-launcher-title>span{font-size:18px;line-height:1}.music-launcher small{margin-top:2px}@media(max-width:360px){.music-launcher-title{font-size:12px;gap:3px}.music-launcher-title>span{font-size:14px}}
