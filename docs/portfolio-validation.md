@@ -11,3 +11,9 @@ Validated locally in Chrome on 15 October 2026.
 - Eight Node regression tests passed for published profile facts, project links, benchmark measurements and guardrails. JavaScript syntax checks and git diff --check passed. All static HTML asset references resolved locally.
 
 The music selection is a dated snapshot. It does not use owner API credentials or automatically read future likes. Spotify controls visitor playback availability. The profile guide uses local retrieval, not a remote model service.
+
+Radio refinement: removed the explanatory music paragraph, moved the compact
+80px Spotify player above the five stations, and reduced track typography to
+13px titles and 11px artists. Inspected desktop and 390px renderings. Radio
+selectors support arrow keys, Home and End; ArrowDown changed Kiss Me to the
+next station and updated the embedded track without autoplay.
