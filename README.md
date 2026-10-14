@@ -100,11 +100,14 @@ The guide remains local retrieval from published portfolio facts, not an LLM.
 Pokémon characters belong to their respective owners; sprites are sourced from
 https://github.com/PokeAPI/sprites and cached locally.
 
-The vintage speaker-style listening corner shuffles five actual tracks from
-Ayan’s Liked Songs, inspected in signed-in Spotify on 15 October 2026. All five
-had no Explicit label. This is a curated snapshot, not an automatic library sync.
+The vintage speaker-style listening corner chooses five tracks daily from an
+eight-song curated public catalogue. The first five came from Ayan’s Liked Songs
+on 15 October 2026; three additional catalogue entries use public Spotify track
+links for songs observed there without Explicit labels. This does not sync likes.
 Spotify embeds load only after song selection; playback requires the visitor’s
-click. Closing the player removes the embed and stops it. Spotify determines
+click. Minimize keeps the same embed playing in a compact strip. Close removes the
+embed and stops it. Opening the guide tucks the music panel away without
+reloading or stopping the embed. Spotify determines
 playback availability and duration; each track has an Open in Spotify fallback.
 No owner tokens or Spotify API secrets are stored or exposed.
 
@@ -123,3 +126,16 @@ owners; public availability is not an assertion of ownership or a new license.
 Landscape-inspired background layers move slowly using CSS transforms.
 Reduced-motion preferences disable animations, and Pause motion in the footer
 pauses decorative motion for the session. No background rendering loop runs.
+
+### Independent daily radio rotation
+
+music-catalog.js contains only public track IDs and descriptive metadata.
+Five tracks rotate at 00:00 Asia/Kolkata each day from the eight-track catalogue,
+based on the visitor's clock. Selection is consistent for a given day and repeats
+on an eight-day cycle. An open page checks the day once per minute and when it
+becomes visible; changing the daily list does not interrupt its playing track.
+This is daily rotation, not new-song discovery or future liked-song syncing.
+No login, refresh token, Spotify Web API, scheduled server task or running owner
+computer is needed. Streaming still relies on Spotify and visitor availability.
+Spotify controls its embed's Save button; the embed has no supported setting to
+remove it, so it remains intact.

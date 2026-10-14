@@ -26,3 +26,9 @@ layers and voice control were visually inspected on desktop and 390px mobile;
 mobile content width equalled 390px. Pause motion changed the decorative
 animation to paused. Reduced-motion disabling is implemented in CSS but was
 not tested with an OS preference change. Nine Node tests pass.
+
+Daily radio/minimize: verified the same Spotify iframe continued playing after
+minimization, with the Pause control visible and progress advancing to 45s.
+Daily selection tests cover stability during a day, five unique non-explicit
+entries, and midnight IST rollover. The playlist rotation uses no account APIs
+or credentials. Ten Node tests pass. The provider-controlled Save button remains.
