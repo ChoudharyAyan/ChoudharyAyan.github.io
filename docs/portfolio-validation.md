@@ -34,3 +34,5 @@ entries, and midnight IST rollover. The playlist rotation uses no account APIs
 or credentials. Ten Node tests pass. The provider-controlled Save button remains.
 
 Owner-provided voices: five supplied MP3 files were converted to PCM WAV, with leading silence removed and exactly 1.5 seconds retained. Verified the new Pikachu source loaded with duration 1.5 and playback active in Chrome. Automated checks verify all five new durations and the retained three 2.4-second clips. Ten tests pass.
+
+Click-to-play refinement: selecting Swing Lynn alone initialized the official Spotify controller and displayed Pause without an iframe Play click. Selecting Kiss Me switched tracks and started playback; its progress advanced while minimized. Close removed the player. Added native SVG path and geometric background graphics; inspected desktop and mobile renders. Ten tests pass.
