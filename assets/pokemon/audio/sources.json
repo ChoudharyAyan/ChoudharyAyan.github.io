@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "source": "bulbasaur-1.mp3",
+    "sourceSeconds": 1.02,
+    "clipSeconds": 1.5,
+    "sourceType": "owner-provided audio",
+    "trimStartSeconds": 0.032
+  },
+  {
+    "id": 4,
+    "source": "charmander.mp3",
+    "sourceSeconds": 0.987,
+    "clipSeconds": 1.5,
+    "sourceType": "owner-provided audio",
+    "trimStartSeconds": 0.149
+  },
+  {
+    "id": 7,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg",
+    "sourceSeconds": 0.876,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 12,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/12.ogg",
+    "sourceSeconds": 0.72,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 16,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/16.ogg",
+    "sourceSeconds": 0.375,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 25,
+    "source": "pikachu-pika-pika-sound-fx.mp3",
+    "sourceSeconds": 2.038,
+    "clipSeconds": 1.5,
+    "sourceType": "owner-provided audio",
+    "trimStartSeconds": 0.269
+  },
+  {
+    "id": 39,
+    "source": "ibuttons-jigglypuff.mp3",
+    "sourceSeconds": 15.271,
+    "clipSeconds": 1.5,
+    "sourceType": "owner-provided audio",
+    "trimStartSeconds": 0.494
+  },
+  {
+    "id": 152,
+    "source": "chikorita.mp3",
+    "sourceSeconds": 9.288,
+    "clipSeconds": 1.5,
+    "sourceType": "owner-provided audio",
+    "trimStartSeconds": 0.123
+  }
+]

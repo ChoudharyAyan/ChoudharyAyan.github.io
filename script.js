@@ -1,6 +1,6 @@
 (function () {
   const feed = document.getElementById("feed-grid");
-  const items = [...(window.FEED_ITEMS || [])].sort((a, b) => b.date.localeCompare(a.date));
+  const items = [...(window.FEED_ITEMS || [])].sort((a, b) => Number(!!b.featured) - Number(!!a.featured) || b.date.localeCompare(a.date));
   const buttons = [...document.querySelectorAll(".filter")];
   const count = document.getElementById("all-count");
 
@@ -43,10 +43,10 @@
     top.className = "card-top";
     const type = document.createElement("span");
     type.className = "card-type";
-    type.textContent = item.type === "build" ? "BUILD" : "ARTICLE";
+    type.textContent = item.type === "build" ? "Project" : "Research";
     const number = document.createElement("span");
     number.className = "card-number";
-    number.textContent = String(index + 1).padStart(2, "0");
+    number.textContent = item.displayDate;
     top.append(type, number);
 
     const eyebrow = document.createElement("p");
@@ -72,7 +72,19 @@
     const secondary = link(item.secondaryLabel || "More", item.secondaryUrl, "card-secondary-link");
     if (primary) links.append(primary);
     if (secondary) links.append(secondary);
-    article.append(top, eyebrow, heading, description, tags, links);
+    const art=document.createElement('figure');art.className='project-art';
+    const img=document.createElement('img');
+    const artFor=/Wardrobe/.test(item.title)?'wardrobeos.png':/UniBlend/.test(item.title)?'uniblend.png':/Job Search/.test(item.title)?'job-search.png':/Teardown/.test(item.title)?'teardown.png':'research.svg';
+    img.src='assets/projects/'+artFor;img.alt=item.type==='article'?'Cost and quality chart from the published vision benchmark':item.title+' project preview';img.loading='lazy';img.width=1440;img.height=900;
+    const caption=document.createElement('figcaption');caption.textContent=/Wardrobe|UniBlend/.test(item.title)?'Live application':item.type==='article'?'Published research':'Project overview';art.append(img,caption);
+    const body=document.createElement('div');body.className='card-body';body.append(top,eyebrow);
+    if(/UniBlend|Wardrobe/.test(item.title)){
+      const brand=document.createElement('div');brand.className='project-brand';
+      const marks=/UniBlend/.test(item.title)?[['spotify.svg','Spotify'],['youtube-music.svg','YouTube Music']]:[['wardrobeos-logo.svg','The WardrobeOS']];
+      marks.forEach(([file,name])=>{const logo=document.createElement('img');logo.src='assets/projects/'+file;logo.alt=name;logo.width=28;logo.height=28;brand.append(logo);});
+      const label=document.createElement('span');label.textContent=/UniBlend/.test(item.title)?'Spotify and YouTube Music':'Discover, Wardrobe and Style Me';brand.append(label);body.append(brand);
+    }
+    body.append(heading,description,tags,links);const destination=safeUrl(item.secondaryUrl||item.url);if(destination){const preview=document.createElement('a');preview.className='project-image-link';preview.href=destination.href;preview.setAttribute('aria-label','Open '+item.title+' preview');if(destination.origin!==location.origin){preview.target='_blank';preview.rel='noopener noreferrer';}preview.append(art);article.append(preview,body);}else article.append(art,body);
     return article;
   }
 
@@ -88,4 +100,13 @@
 
   buttons.forEach((button) => button.addEventListener("click", () => render(button.dataset.filter)));
   render("all");
+})();
+
+(function(){
+ if(!document.body.classList.contains('portfolio'))return;
+ const footer=document.querySelector('.footer-bottom');if(!footer)return;
+ const button=document.createElement('button');button.className='motion-toggle';button.type='button';
+ let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;try{paused ||= sessionStorage.getItem('ayan-motion-paused')==='1';}catch{}
+ function paint(){document.body.classList.toggle('motion-paused',paused);button.textContent=paused?'Motion paused':'Pause motion';button.setAttribute('aria-pressed',String(paused));}
+ button.addEventListener('click',()=>{paused=!paused;try{sessionStorage.setItem('ayan-motion-paused',paused?'1':'0');}catch{}paint();});footer.append(button);paint();
 })();
