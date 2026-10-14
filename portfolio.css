@@ -19,3 +19,4 @@ body.portfolio{background:radial-gradient(ellipse at 95% 6%,#dce8d980,transparen
 
 .hero:after{left:-65px;top:105px;width:640px;height:480px;background:url('assets/hero-lines.svg') center/contain no-repeat;mask-image:linear-gradient(90deg,#000, #000 70%,transparent);opacity:.28;animation:landscape-drift 22s ease-in-out infinite alternate-reverse}.hero-role,.hero h1,.hero-intro,.current-role{position:relative}.hero:before{border-color:#9bae9680;box-shadow:0 0 0 18px #a7ba9c18,0 0 0 36px #a7ba9c14,0 0 0 54px #a7ba9c10}
 @media(max-width:650px){.hero:after{left:-18px;top:380px;width:340px;height:320px;opacity:.22}}
+@media(max-width:650px){.hero:after{left:0;width:min(340px,100%)}}
