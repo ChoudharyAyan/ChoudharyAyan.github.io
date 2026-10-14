@@ -104,8 +104,8 @@ The vintage speaker-style listening corner chooses five tracks daily from an
 eight-song curated public catalogue. The first five came from Ayan’s Liked Songs
 on 15 October 2026; three additional catalogue entries use public Spotify track
 links for songs observed there without Explicit labels. This does not sync likes.
-Spotify embeds load only after song selection; playback requires the visitor’s
-click. Minimize keeps the same embed playing in a compact strip. Close removes the
+The Spotify controller API loads when the listening panel is opened. Track
+embeds load only after song selection, and that click requests playback. Minimize keeps the same embed playing in a compact strip. Close removes the
 embed and stops it. Opening the guide tucks the music panel away without
 reloading or stopping the embed. Spotify determines
 playback availability and duration; each track has an Open in Spotify fallback.
@@ -142,3 +142,5 @@ Spotify controls its embed's Save button; the embed has no supported setting to
 remove it, so it remains intact.
 
 Five voice clips (Bulbasaur, Charmander, Pikachu, Jigglypuff and Chikorita) now use owner-provided MP3 recordings trimmed to 1.5 seconds after leading silence. Squirtle, Butterfree and Pidgey keep the existing 2.4-second game cries. Source filenames and trim offsets are recorded in the audio manifest.
+
+Song selection now creates an official Spotify iframe controller and calls play when it is ready. Selecting another song destroys the previous controller; minimizing preserves it and closing destroys it. A normal embed remains available if the controller script fails. Browser/Spotify playback restrictions can still apply.
