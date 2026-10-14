@@ -101,3 +101,12 @@
   buttons.forEach((button) => button.addEventListener("click", () => render(button.dataset.filter)));
   render("all");
 })();
+
+(function(){
+ if(!document.body.classList.contains('portfolio'))return;
+ const footer=document.querySelector('.footer-bottom');if(!footer)return;
+ const button=document.createElement('button');button.className='motion-toggle';button.type='button';
+ let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;try{paused ||= sessionStorage.getItem('ayan-motion-paused')==='1';}catch{}
+ function paint(){document.body.classList.toggle('motion-paused',paused);button.textContent=paused?'Motion paused':'Pause motion';button.setAttribute('aria-pressed',String(paused));}
+ button.addEventListener('click',()=>{paused=!paused;try{sessionStorage.setItem('ayan-motion-paused',paused?'1':'0');}catch{}paint();});footer.append(button);paint();
+})();

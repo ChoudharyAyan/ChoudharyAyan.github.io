@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg",
+    "sourceSeconds": 0.939,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 4,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
+    "sourceSeconds": 0.72,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 7,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg",
+    "sourceSeconds": 0.876,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 12,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/12.ogg",
+    "sourceSeconds": 0.72,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 16,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/16.ogg",
+    "sourceSeconds": 0.375,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 25,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/25.ogg",
+    "sourceSeconds": 0.926,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 39,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/39.ogg",
+    "sourceSeconds": 0.375,
+    "clipSeconds": 2.4
+  },
+  {
+    "id": 152,
+    "source": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/152.ogg",
+    "sourceSeconds": 0.407,
+    "clipSeconds": 2.4
+  }
+]

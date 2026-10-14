@@ -78,7 +78,7 @@ The Pokémon guide is a local retrieval guide, not an LLM-backed service. It run
 
 ```sh
 python3 scripts/build-knowledge.py
-node --test tests/profile-guide.test.mjs
+node --test tests/*.test.mjs
 ```
 
 The authored profile/education summaries in `guide-answer.js` should also be reviewed when those facts change. Profile source links resolve from the site root, including when the guide is opened on a nested article/project page. The guide root uses PostHog’s `ph-no-capture` exclusion and the custom analytics listener ignores that root, so chat contents are not included in click tracking. Existing analytics elsewhere remains in place. No API key, provider configuration or paid service is needed.
@@ -94,8 +94,8 @@ Current design screenshots use `profile-*`, `projects-*`, `guide-*` and `reading
 Eight cached PokéAPI sprites provide Pikachu, Charmander, Bulbasaur, Squirtle,
 Jigglypuff, Chikorita, Pidgey and Butterfree. A random companion is saved in
 sessionStorage for the tab session and can be changed in the accessible chooser.
-Each has a written characteristic cry, greeting and starter question. No sound
-autoplays. A dismissible invitation appears once per session after 12 seconds.
+Each has a characteristic cry, greeting and starter question. Sound never plays on page load. Selecting a companion plays its short cry;
+the Hear voice button replays it and doubles as Stop during playback. A dismissible invitation appears once per session after 12 seconds.
 The guide remains local retrieval from published portfolio facts, not an LLM.
 Pokémon characters belong to their respective owners; sprites are sourced from
 https://github.com/PokeAPI/sprites and cached locally.
@@ -107,3 +107,19 @@ Spotify embeds load only after song selection; playback requires the visitor’s
 click. Closing the player removes the embed and stops it. Spotify determines
 playback availability and duration; each track has an Open in Spotify fallback.
 No owner tokens or Spotify API secrets are stored or exposed.
+
+### Audio and background motion
+
+Eight distinct game cries are cached from the PokéAPI cries repository, with
+source links and original durations in assets/pokemon/audio/sources.json.
+The original short cries are repeated with 240ms pauses into 2.4-second WAV
+clips at 24kHz for broad browser support, capped to a comfortable level.
+These are game cries, not anime dialogue or generated voice impersonations.
+Selection and replay require a visitor click. Closing the guide, opening the
+music panel or hiding the page stops voice playback. No audio API or live
+PokéAPI request is used by visitors. Pokémon audio belongs to its respective
+owners; public availability is not an assertion of ownership or a new license.
+
+Landscape-inspired background layers move slowly using CSS transforms.
+Reduced-motion preferences disable animations, and Pause motion in the footer
+pauses decorative motion for the session. No background rendering loop runs.

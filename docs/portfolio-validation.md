@@ -17,3 +17,12 @@ Radio refinement: removed the explanatory music paragraph, moved the compact
 13px titles and 11px artists. Inspected desktop and 390px renderings. Radio
 selectors support arrow keys, Home and End; ArrowDown changed Kiss Me to the
 next station and updated the embedded track without autoplay.
+
+Pokémon sound and landscape backgrounds: all eight cached WAV clips are distinct,
+valid PCM and exactly 2.4 seconds (automated asset test). In Chrome, selecting
+Pikachu played the 25.wav clip, Hear voice replayed it, and closing the panel
+stopped playback. Reload remained silent with no audio source set. Background
+layers and voice control were visually inspected on desktop and 390px mobile;
+mobile content width equalled 390px. Pause motion changed the decorative
+animation to paused. Reduced-motion disabling is implemented in CSS but was
+not tested with an OS preference change. Nine Node tests pass.
