@@ -9,7 +9,7 @@ window.FEED_ITEMS = [
     description: "A personal agent that finds product and strategy roles, scores new openings against a profile, and sends a short digest of the ones worth a closer look.",
     tags: ["Automation", "AI", "Career"],
     url: "builds/job-search-agent.html",
-    linkLabel: "View the build"
+    linkLabel: "Read the project"
   },
   {
     type: "build",
@@ -20,14 +20,15 @@ window.FEED_ITEMS = [
     description: "A mobile-first workspace for capturing a product journey screen by screen, turning notes into a structured teardown, and sharing the report.",
     tags: ["Product", "Research", "Tooling"],
     url: "builds/product-teardown-agent.html",
-    linkLabel: "View the build"
+    linkLabel: "Read the project"
   },
   {
     type: "build",
     date: "2026-09-16",
     displayDate: "2026",
     eyebrow: "PRODUCT EXPERIMENT",
-    title: "The Wardrobe OS",
+    title: "The WardrobeOS",
+    featured: true,
     description: "An India-first fashion companion exploring visual discovery, a digital wardrobe, styling, and more thoughtful shopping decisions.",
     tags: ["Fashion", "AI", "Product"],
     url: "https://github.com/ChoudharyAyan/the-better-wardrobe",
@@ -41,6 +42,7 @@ window.FEED_ITEMS = [
     displayDate: "2026",
     eyebrow: "SIDE PROJECT",
     title: "UniBlend",
+    featured: true,
     description: "A cross-platform music blend for friends on Spotify and YouTube Music, with shared songs, artist overlap, and a taste-match score.",
     tags: ["Music", "Full-stack", "Experiment"],
     url: "https://github.com/ChoudharyAyan/uniblend",

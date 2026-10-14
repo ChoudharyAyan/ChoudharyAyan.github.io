@@ -1,0 +1,19 @@
+<svg viewBox="0 0 960 540" role="img" aria-labelledby="chart-title chart-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="chart-title">FNDS score versus cost per 1,000 images</title><desc id="chart-desc">Scatter plot of all 11 tested vision models. Gemini 3 Flash scores 94.7 at $3.19 and is highlighted as the best value.</desc>
+                <g class="chart-grid"><path d="M75 65H910M75 155H910M75 245H910M75 335H910M75 425H910"/><path d="M85 65V425M265 65V425M445 65V425M685 65V425M865 65V425"/></g>
+                <g class="chart-axis"><text x="45" y="69">100</text><text x="49" y="159">90</text><text x="49" y="249">80</text><text x="49" y="339">70</text><text x="49" y="429">60</text><text x="75" y="457">$0.5</text><text x="252" y="457">$1</text><text x="432" y="457">$2</text><text x="672" y="457">$5</text><text x="846" y="457">$10</text><text x="401" y="505">COST PER 1,000 IMAGES · LOG SCALE →</text><text transform="translate(18 306) rotate(-90)">FNDS SCORE →</text></g>
+                <g class="chart-points">
+                  <circle class="google" cx="686" cy="110" r="9"><title>Gemini 3.6 Flash: 95.0, $5.01</title></circle>
+                  <circle class="best-ring" cx="562" cy="113" r="17"/><circle class="google" cx="562" cy="113" r="10"><title>Gemini 3 Flash: 94.7, $3.19 · best value</title></circle>
+                  <circle class="google" cx="885" cy="148" r="9"><title>Gemini 3.5 Flash: 90.8, $11.05</title></circle>
+                  <circle class="google outline" cx="467" cy="161" r="9"><title>Gemini 3.1 Flash-Lite: 89.3, $2.18 · 4% failed calls</title></circle>
+                  <circle class="openai" cx="640" cy="172" r="9"><title>GPT-5.4 mini: 88.1, $4.26</title></circle>
+                  <circle class="openai" cx="310" cy="190" r="9"><title>GPT-5.6 Luna: 86.1, $1.19</title></circle>
+                  <circle class="anthropic" cx="730" cy="203" r="9"><title>Claude Haiku 4.5: 84.7, $5.94</title></circle>
+                  <circle class="openai" cx="336" cy="227" r="9"><title>GPT-5.4 nano: 82.0, $1.32</title></circle>
+                  <circle class="openai" cx="89" cy="252" r="9"><title>GPT-5 nano: 79.2, $0.51</title></circle>
+                  <circle class="qwen" cx="393" cy="315" r="9"><title>Qwen3-VL 235B: 72.2, $1.64</title></circle>
+                  <circle class="qwen" cx="152" cy="367" r="9"><title>Qwen3-VL 30B: 66.5, $0.65</title></circle>
+                </g>
+                <g class="chart-labels"><text x="543" y="88">GEMINI 3 FLASH</text><text x="694" y="105">3.6 FLASH</text><text x="91" y="242">GPT-5 NANO</text><text x="476" y="182">FLASH-LITE*</text></g>
+              </svg>

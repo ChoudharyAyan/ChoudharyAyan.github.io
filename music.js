@@ -1,0 +1,18 @@
+/* Five non-explicit tracks verified in Ayan's Liked Songs on 15 October 2026.
+   No account credentials. Spotify is contacted only after a track is selected. */
+(function(){
+ const tracks=[
+ {id:'3VCXx37jNGNOMns6z2OnvJ',title:'Swing Lynn',artist:'Harmless',explicit:false},
+ {id:'754kgU5rWscRTfvlsuEwFp',title:'Kiss Me',artist:'Sixpence None The Richer',explicit:false},
+ {id:'1LzNfuep1bnAUR9skqdHCK',title:'Fade Into You',artist:'Mazzy Star',explicit:false},
+ {id:'2enPRFda84VE2wtI8c86Uf',title:'Always Forever',artist:'Cults',explicit:false},
+ {id:'61OJxhoY3Ix50rYVKo8zRK',title:'Can I Call You Tonight?',artist:'Dayglow',explicit:false}
+ ].filter(t=>t.explicit===false&&/^[A-Za-z0-9]{22}$/.test(t.id));
+ const root=document.createElement('div');root.id='portfolio-music';root.className='ph-no-capture';document.body.append(root);
+ root.innerHTML='<button class="music-launcher" aria-expanded="false" aria-controls="music-panel">♫ Listen & scroll<small>Five of Ayan’s favourites</small></button><section class="music-panel" id="music-panel" role="dialog" aria-modal="false" aria-label="Ayan’s listening corner" hidden><header class="speaker-top"><strong>Listening corner</strong><button aria-label="Close music player">×</button></header><div class="speaker-grille"><span>Ayan’s selection</span></div><div class="music-tracks"></div><button class="music-shuffle">Shuffle the five</button><div class="music-player"></div><p class="music-note">From my liked songs. No explicit-labelled tracks. Select a song, then press play in Spotify. Playback length depends on Spotify and your account.</p></section>';
+ const launcher=root.querySelector('.music-launcher'),panel=root.querySelector('.music-panel'),list=root.querySelector('.music-tracks'),player=root.querySelector('.music-player');let selected=null;
+ function shuffle(){for(let i=tracks.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[tracks[i],tracks[j]]=[tracks[j],tracks[i]];}render();}
+ function render(){list.replaceChildren();tracks.forEach(t=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',String(selected===t.id));b.textContent=t.title;const small=document.createElement('small');small.textContent=t.artist;b.append(small);b.addEventListener('click',()=>{selected=t.id;player.replaceChildren();const iframe=document.createElement('iframe');iframe.title='Spotify player: '+t.title;iframe.src='https://open.spotify.com/embed/track/'+t.id+'?theme=0';iframe.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';player.append(iframe);const a=document.createElement('a');a.href='https://open.spotify.com/track/'+t.id;a.textContent='Open '+t.title+' in Spotify ↗';a.target='_blank';a.rel='noopener noreferrer';a.className='music-fallback';player.append(a);render();});list.append(b);});}
+ function close(){panel.hidden=true;launcher.setAttribute('aria-expanded','false');player.replaceChildren();selected=null;render();}
+ launcher.addEventListener('click',()=>{if(panel.hidden){document.dispatchEvent(new CustomEvent('portfolio-music-open'));panel.hidden=false;launcher.setAttribute('aria-expanded','true');panel.querySelector('button').focus({preventScroll:true});}else close();});panel.querySelector('header button').addEventListener('click',()=>{close();launcher.focus({preventScroll:true});});root.querySelector('.music-shuffle').addEventListener('click',shuffle);document.addEventListener('portfolio-guide-open',close);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){close();launcher.focus({preventScroll:true});}});shuffle();
+})();

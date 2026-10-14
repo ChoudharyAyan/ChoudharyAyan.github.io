@@ -32,7 +32,7 @@
   document.addEventListener("click", function (event) {
     if (!(event.target instanceof Element)) return;
     const control = event.target.closest("a, button");
-    if (!control) return;
+    if (!control || control.closest("#profile-guide, #portfolio-music")) return;
 
     if (control.matches(".filter[data-filter]")) {
       capture("feed_filter_selected", { filter: control.dataset.filter });

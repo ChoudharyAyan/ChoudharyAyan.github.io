@@ -1,6 +1,6 @@
 # Ayan Choudhary’s website
 
-A lightweight personal site designed for GitHub Pages. It has two main sections: **The journey** and **The feed**. The feed filters **Builds** and **Articles**. It uses plain HTML, CSS, and JavaScript, so there is no build step or dependency installation.
+A lightweight personal site designed for GitHub Pages. It has a photo-led profile, **Projects**, and **My background**. The work index filters projects and research. It uses plain HTML, CSS, and JavaScript, so there is no build step or dependency installation.
 
 ## Add a post or project
 
@@ -22,7 +22,7 @@ Open [`feed.js`](feed.js) and add an object at the top of `window.FEED_ITEMS`. U
 
 Builds with private source code can link to a public project page under `builds/`, as the Job Search Agent and Product Teardown Agent do.
 
-To update the career timeline or introduction, edit [`index.html`](index.html). The shared visual design lives in [`styles.css`](styles.css), with heading adjustments in [`typography.css`](typography.css) and project-page styles in [`build.css`](build.css).
+To update the career timeline or introduction, edit [`index.html`](index.html). The homepage lives in [`portfolio.css`](portfolio.css). Reading pages use [`reading.css`](reading.css) over the existing article/build layouts. All interface text uses the self-hosted DM Sans family in [`fonts.css`](fonts.css); its OFL license is bundled with the font files.
 
 ## Preview locally
 
@@ -62,18 +62,48 @@ Use a different tagged link in each placement so PostHog can separate visits fro
 
 Replace the existing untagged URL in each LinkedIn placement with its matching tagged link. In PostHog Web Analytics, check **Sources** and the UTM campaign/content breakdown; `utm_content` distinguishes post from comment. The older untagged link may appear as LinkedIn referral traffic when the browser passes its referrer, but it cannot reliably distinguish those two placements. PostHog counts people who land on this site, not LinkedIn post impressions, profile views, or clicks that never reach the site; those are available in LinkedIn's own post/profile analytics.
 
-## Portfolio redesign — 15 October 2026
+## Profile-led portfolio and The Pokémon guide
 
-The homepage is an editorial portfolio inspired by the sculptural opening, restrained typography and section pacing of [AI COMMON](https://aicommon.creamu.co.jp/). Its custom parametric SVG sculpture and project illustrations are built in code; no reference-site assets, copy or source were reused. The owner's existing Aomori photograph and factual career/project content remain the content foundation.
+The current design uses the owner’s existing Aomori photo, one self-hosted DM Sans type family, larger navigation/body text, and straightforward profile copy. Decorative wire art, palette switching and tiny technical labels have been removed. The explorer links remember three visited areas in session storage; this is light navigation feedback, not a points or ranking system.
 
-- `portfolio.css` controls the homepage. Default: forest/citrus. The live palette controls also offer petrol/copper and paper/cobalt; selection is remembered in this browser when storage is available.
-- `script.js` renders the work index and the sculpture. Pointer movement subtly changes its perspective. Motion can be paused, respects reduced-motion preferences, and stops updating the geometry when the hero is off-screen or the document is hidden.
-- `reading.css` makes the existing benchmark and project pages belong to the same site without changing research results or the original downloadable PDF.
-- `feed.js` remains the content source; its existing filters, link safety and analytics-compatible card classes are retained. Wardrobe OS uses its current product name and app domain.
-- No new framework, tracking service, font download or image-generation dependency.
+### Project imagery
 
-### Review evidence
+`assets/projects/` contains real screenshots from The WardrobeOS and UniBlend, the logos actually used by those apps, the existing published benchmark chart, and captures of the Job Search Agent / Product Teardown Agent public overviews. Cards explicitly distinguish **Live application**, **Published research** and **Project overview**. No private job dashboard or account information was captured. Logos indicate the applications and supported platforms, not an endorsement. The homepage displays the current product name **The WardrobeOS**.
 
-JavaScript syntax checks (`node --check script.js`, `feed.js`, `analytics.js`) and `git diff --check` passed. A local HTML-parser audit checked all four HTML pages and 60 local asset/link/anchor references. Browser checks covered the two work filters, all three palettes, pause behaviour (SVG geometry remained identical), 44×44 palette targets, and rendered desktop/390px/320px layouts. Homepage and reading pages had no page-level horizontal overflow at the verified phone widths. Existing PostHog setup is unchanged and remains disabled on localhost.
+### The Pokémon guide, portfolio guide
 
-Screenshots in `docs/screenshots/` show palette comparisons, the mobile homepage, work index and reading pages. These are local-browser checks, not a real-device or complete accessibility/performance audit. Reduced-motion handling was reviewed in code; the operating system's preference was not changed during testing.
+The Pokémon guide is a local retrieval guide, not an LLM-backed service. It runs on all four pages, provides profile/project/education summaries, retrieves published content and named benchmark rows, and links every substantive answer to its source. It covers 31 published sections/rows. Unknown questions are declined; private information, credentials, unrelated tasks and unconfirmed hiring availability are not invented. User text is inserted with `textContent`, inputs are capped at 500 characters and chat messages remain in this tab.
+
+`guide-answer.js` contains the pure answering logic. `guide.js` renders the widget and explorer feedback, and `guide.css` styles it. `knowledge.js` is generated from the published HTML. After editing site content, refresh the index with:
+
+```sh
+python3 scripts/build-knowledge.py
+node --test tests/profile-guide.test.mjs
+```
+
+The authored profile/education summaries in `guide-answer.js` should also be reviewed when those facts change. Profile source links resolve from the site root, including when the guide is opened on a nested article/project page. The guide root uses PostHog’s `ph-no-capture` exclusion and the custom analytics listener ignores that root, so chat contents are not included in click tracking. Existing analytics elsewhere remains in place. No API key, provider configuration or paid service is needed.
+
+### Verification
+
+Eight meaningful answer regression tests cover professional facts, project destinations, career/research retrieval, exact model comparisons, refusals and unknown availability. JavaScript syntax checks and local link/asset/anchor checks also pass. Browser review covers desktop and 390px/320px layouts, loaded DM Sans fonts, real images, filter counts, typed questions, refusal behaviour, Escape/focus restoration, guide bounds and links on reading pages. These are browser checks, not a complete accessibility audit or real-device certification.
+
+Current design screenshots use `profile-*`, `projects-*`, `guide-*` and `reading-*` names in `docs/screenshots/`.
+
+### Pokémon companions and listening corner
+
+Eight cached PokéAPI sprites provide Pikachu, Charmander, Bulbasaur, Squirtle,
+Jigglypuff, Chikorita, Pidgey and Butterfree. A random companion is saved in
+sessionStorage for the tab session and can be changed in the accessible chooser.
+Each has a written characteristic cry, greeting and starter question. No sound
+autoplays. A dismissible invitation appears once per session after 12 seconds.
+The guide remains local retrieval from published portfolio facts, not an LLM.
+Pokémon characters belong to their respective owners; sprites are sourced from
+https://github.com/PokeAPI/sprites and cached locally.
+
+The vintage speaker-style listening corner shuffles five actual tracks from
+Ayan’s Liked Songs, inspected in signed-in Spotify on 15 October 2026. All five
+had no Explicit label. This is a curated snapshot, not an automatic library sync.
+Spotify embeds load only after song selection; playback requires the visitor’s
+click. Closing the player removes the embed and stops it. Spotify determines
+playback availability and duration; each track has an Open in Spotify fallback.
+No owner tokens or Spotify API secrets are stored or exposed.
