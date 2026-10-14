@@ -144,3 +144,7 @@ remove it, so it remains intact.
 Five voice clips (Bulbasaur, Charmander, Pikachu, Jigglypuff and Chikorita) now use owner-provided MP3 recordings trimmed to 1.5 seconds after leading silence. Squirtle, Butterfree and Pidgey keep the existing 2.4-second game cries. Source filenames and trim offsets are recorded in the audio manifest.
 
 Song selection now creates an official Spotify iframe controller and calls play when it is ready. Selecting another song destroys the previous controller; minimizing preserves it and closing destroys it. A normal embed remains available if the controller script fails. Browser/Spotify playback restrictions can still apply.
+
+### LinkedIn profile knowledge
+
+Seventeen curated Q&A topics in data/linkedin-knowledge.json were verified from the owner’s LinkedIn About, Experience, Education, Certifications and Featured sections on 15 October 2026. The knowledge generator combines them with the 31 existing portfolio entries. Answers cite the LinkedIn profile. No additional starter prompts or public Q&A cards are rendered. This is a static snapshot, with no visitor login, LinkedIn API or live profile scraping. Account-private cards and credential identifiers are excluded. Twelve tests cover retrieval, source links, precise dates and existing guardrails.

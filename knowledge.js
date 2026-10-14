@@ -164,5 +164,175 @@ window.PORTFOLIO_KNOWLEDGE = [
     "model": "Qwen3-VL 30B",
     "text": "Qwen3-VL 30B scored 66.5 FNDS. Item recall: 70.1. Naming: 70.5. Description: 66.0. Search: 61.5. Measured cost: $0.65 per 1,000 images. Median latency: 20.7s. These are results from the published 100-image benchmark using OpenRouter, not current pricing or a universal ranking.",
     "url": "articles/vision-model-benchmark.html#results"
+  },
+  {
+    "title": "What does Ayan focus on in AI?",
+    "patterns": [
+      "\\b(focus areas|speciali[sz]|voice ai|llm deployment|moneti[sz]ation|ai transformation)\\b"
+    ],
+    "text": "His LinkedIn profile highlights Voice AI, go-to-market, LLM deployment and monetization, platform strategy and AI-led transformation. He describes cross-functional work across product, engineering and business.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "Which industries has Ayan worked across?",
+    "patterns": [
+      "\\b(industries|industry experience|sectors|domains)\\b"
+    ],
+    "text": "His profile lists experience across AI and SaaS, power and utilities, healthcare, e-commerce, EV and automotive, and EdTech.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What is Ayan’s current role at Sprouts.ai?",
+    "patterns": [
+      "\\b(sprouts|current role|current job|currently working)\\b"
+    ],
+    "text": "Ayan lists Product Manager - AI at Sprouts.ai, starting in May 2026. His work covers AI workflows, recommendations, data intelligence and evaluations.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What did Ayan do at Nurix?",
+    "patterns": [
+      "\\b(nurix|voice evaluation|voice evals|cto|cpo)\\b"
+    ],
+    "text": "Ayan was a Product Builder at Nurix from May 2025 to May 2026. His profile describes product work, Voice AI evaluations, client-project delivery for ICC and EdTech clients, and technology strategy reporting to the CTO and CPO.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "How is Ayan connected to cricket?",
+    "patterns": [
+      "\\b(cricket|icc|t20|sports interests)\\b"
+    ],
+    "text": "Ayan describes cricket and AI as strong personal interests. His LinkedIn activity discusses Nurix’s AI chat experience for the International Cricket Council, while his Nurix role lists ICC client-project delivery. His IIT Bombay activities also include NSO Cricket.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What GenAI ROI work has Ayan done?",
+    "patterns": [
+      "\\b(genai roi|gen ai roi|return on investment|telecom|token pric|inflation)\\b|^(?!.*myntra).*\\broi\\b"
+    ],
+    "text": "At Accenture, Ayan developed a GenAI ROI model for three UK telecom use cases, identifying potential customer-retention and productivity benefits. He benchmarked OpenAI and Gemini token pricing across scenarios and forecast model-pricing and inflation variables.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What healthcare M&A experience does Ayan have?",
+    "patterns": [
+      "\\b(healthcare|acquisition|m a|mergers|investment bank)\\b"
+    ],
+    "text": "His Accenture profile describes identifying acquisition targets in US healthcare for a US investment bank, analysing M&A deals, benchmarking deal parameters and automating evaluations with Power BI.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What market-entry work has Ayan done?",
+    "patterns": [
+      "\\b(market entry|market sizing|commercial tire|commercial tyre|expansion strateg)\\b"
+    ],
+    "text": "At Accenture, Ayan worked on commercial-tire market sizing and expansion strategies in India and China. He developed an Indian market-entry roadmap highlighting growth drivers.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What did Ayan do at Accenture?",
+    "patterns": [
+      "\\b(accenture|accstrat|consulting background|strategy analyst)\\b"
+    ],
+    "text": "Ayan lists Strategy Analyst | GenAI Products at Accenture from June 2023 to May 2025. His work spans GenAI ROI modelling, healthcare mergers and acquisitions consulting, and market-entry and growth strategy.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What did Ayan work on at Myntra?",
+    "patterns": [
+      "\\b(myntra|seller portal|rebate|opt ins|ppo|pre placement)\\b"
+    ],
+    "text": "As a Product Management Intern at Myntra in April and May 2022, Ayan worked on the B2B seller portal, including ROI prediction, rebate scheduling and automated opt-ins. His profile reports resolving six key pain points for more than 30 brands, revising sales-event incentives, and receiving a pre-placement offer.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What did Ayan do at Ola Electric?",
+    "patterns": [
+      "\\b(ola|manufacturing|rasic|assembly line|machine shops)\\b"
+    ],
+    "text": "Ayan was a Program Manager at Ola Electric from August 2020 to July 2021. His profile describes manufacturing-operations project management, assembly-line layouts for more than five machine shops across six teams, and RASIC-based workflows and risk-mitigation plans using Jira.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "Where did Ayan do his exchange semester?",
+    "patterns": [
+      "\\b(japan|exchange|iuj|international relations)\\b"
+    ],
+    "text": "Ayan completed an exchange semester at the International University of Japan from September to December 2022, studying business and international relations during his IIM Bangalore MBA.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What college activities was Ayan involved in?",
+    "patterns": [
+      "\\b(college activities|societies|clubs|eximius|sustainability|mars society|gmfl|mountaineer|hobbies|interests outside)\\b"
+    ],
+    "text": "At IIM Bangalore, Ayan lists the Environment & Sustainability Club and Eximius entrepreneurship summit. At IIT Bombay, he lists Mars Society India, GMFL Lab, NSO Cricket and mountaineering training at JIM & WS in Sanasar, Jammu.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What certifications does Ayan list?",
+    "patterns": [
+      "\\b(certificat|udemy|python course|excel course)\\b"
+    ],
+    "text": "His profile lists Udemy courses in Python for Data Science and Machine Learning, issued in May 2020, and Microsoft Excel from Beginner to Advanced, issued in April 2020.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "Does Ayan offer mentoring?",
+    "patterns": [
+      "\\b(mentor|mentoring|interview preparation|career advice|book a|topmate|1 1)\\b"
+    ],
+    "text": "His LinkedIn profile lists interview preparation and a featured 1:1 page offering guidance on AI product-management careers, Voice AI product strategy and production-ready AI products. The published booking link is https://topmate.io/ayan_choudhary. Current availability and pricing should be checked on that page.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What tools has Ayan used?",
+    "patterns": [
+      "\\b(tools|power bi|powerbi|sql|jira|technical skills|tech stack)\\b"
+    ],
+    "text": "His profile mentions Power BI for automated evaluations at Accenture, Jira for workflows at Ola Electric, and SQL among the skills associated with his Myntra internship. It also lists Voice AI, large language models, strategy, market analysis and market entry as top skills.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
+  },
+  {
+    "title": "What are Ayan’s top skills?",
+    "patterns": [
+      "\\b(skills|expertise|strengths)\\b"
+    ],
+    "text": "His LinkedIn profile highlights Voice AI, large language models, strategy, market analysis and market entry. His experience also covers AI product work, growth strategy, Voice AI evaluation and cross-functional delivery.",
+    "url": "https://www.linkedin.com/in/choudhary-ayan/",
+    "source": "LinkedIn profile",
+    "verifiedOn": "2026-10-15"
   }
 ];

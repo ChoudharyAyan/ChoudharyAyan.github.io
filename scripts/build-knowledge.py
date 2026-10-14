@@ -37,5 +37,7 @@ for row in re.findall(r'<tr\b[^>]*>(.*?)</tr>',s,re.S):
  name=plain(cells[0].split('<small')[0]); values=[plain(c) for c in cells[1:]]
  text=f"{name} scored {values[0]} FNDS. Item recall: {values[1]}. Naming: {values[2]}. Description: {values[3]}. Search: {values[4]}. Measured cost: {values[5]} per 1,000 images. Median latency: {values[6]}. These are results from the published 100-image benchmark using OpenRouter, not current pricing or a universal ranking."
  entries.append({'title':name+' benchmark results','model':name,'text':text,'url':'articles/vision-model-benchmark.html#results'})
+# Curated professional facts verified against the owner’s LinkedIn profile.
+entries.extend(json.loads((root/'data/linkedin-knowledge.json').read_text()))
 (root/'knowledge.js').write_text('window.PORTFOLIO_KNOWLEDGE = '+json.dumps(entries,ensure_ascii=False,indent=2)+';\n')
 print('Indexed',len(entries),'published content sections')
