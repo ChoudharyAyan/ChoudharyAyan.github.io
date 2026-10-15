@@ -143,7 +143,7 @@ remove it, so it remains intact.
 
 Five voice clips (Bulbasaur, Charmander, Pikachu, Jigglypuff and Chikorita) now use owner-provided MP3 recordings trimmed to 1.5 seconds after leading silence. Squirtle, Butterfree and Pidgey keep the existing 2.4-second game cries. Source filenames and trim offsets are recorded in the audio manifest.
 
-Song selection now creates an official Spotify iframe controller and calls play when it is ready. Selecting another song destroys the previous controller; minimizing preserves it and closing destroys it. A normal embed remains available if the controller script fails. Browser/Spotify playback restrictions can still apply.
+Opening the Jukebox prepares one official Spotify iframe controller without autoplay. Song selection reuses it with loadEntity and play. Minimize preserves it; Close destroys it. A normal embed remains available if the controller script fails. Browser/Spotify playback restrictions can still apply. See docs/jukebox-architecture.md for the architecture and measured timings.
 
 ### LinkedIn profile knowledge
 
