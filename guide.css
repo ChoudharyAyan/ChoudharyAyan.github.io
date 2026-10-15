@@ -34,3 +34,8 @@
 @media(prefers-reduced-motion:reduce){.guide-message.is-thinking p:after,.guide-message.is-typing p:after{animation:none}}
 
 @media(max-width:650px){body.guide-open{position:fixed;top:var(--guide-scroll-top,0px);left:0;right:0;width:100%;overscroll-behavior:none}.guide-panel{bottom:auto;box-sizing:border-box}.guide-form:focus-within .guide-note{display:none}.guide-form input{font-size:16px;scroll-margin-bottom:16px}.guide-log{scroll-padding-bottom:16px}.guide-picker{flex-shrink:1;min-height:0}}
+
+/* The mobile guide uses the browser top layer, independent of the page scroll. */
+dialog.guide-panel{margin:0;padding-inline:0;padding-block:0;color:var(--ink);box-sizing:border-box}dialog.guide-panel::backdrop{background:#f7f8f4}dialog.guide-panel:not([open]){display:none}dialog.guide-panel[data-native-modal=true]{position:fixed;inset:auto;max-width:none;max-height:none;border:0;border-radius:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+
+dialog.guide-panel{left:auto;top:auto}

@@ -39,5 +39,6 @@ for row in re.findall(r'<tr\b[^>]*>(.*?)</tr>',s,re.S):
  entries.append({'title':name+' benchmark results','model':name,'text':text,'url':'articles/vision-model-benchmark.html#results'})
 # Curated professional facts verified against the owner’s LinkedIn profile.
 entries.extend(json.loads((root/'data/linkedin-knowledge.json').read_text()))
+entries.append(json.loads((root/'data/contact.json').read_text()))
 (root/'knowledge.js').write_text('window.PORTFOLIO_KNOWLEDGE = '+json.dumps(entries,ensure_ascii=False,indent=2)+';\n')
 print('Indexed',len(entries),'published content sections')
